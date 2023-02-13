@@ -75,7 +75,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
                 case .success(let original):
                     DispatchQueue.main.async {
                         self?.images[selectedIndex].original = original
-                        self?.loadImage(selectedIndex: selectedIndex)
+                        if selectedIndex == self?.selectedIndex {
+                            self?.loadImage(selectedIndex: selectedIndex)
+                        }
                     }
                 case .failure(let failure):
                     print(failure)
